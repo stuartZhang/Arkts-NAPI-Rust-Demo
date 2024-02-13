@@ -1,4 +1,11 @@
-# `Rust`编程开发`ArkTs NAPI`原生模块的例程
+# 【例程】`Rust`编程开发`ArkTs NAPI`原生模块
+
+在该完整例程中，
+
+* 既包含了`DevEco Studio`的`Empty Ability`工程
+* 也包括了`Cargo (Library) Package`工程
+* 更涵盖了[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)的用例代码。
+* 最后，`Cargo (Library) Package`工程根目录下的`build.rs`构建程序也能直接在其它同类`Cargo Package`工程内复用。
 
 ## 如何使普通的`Empty Ability`工程支持`Rust`原生模块开发
 
