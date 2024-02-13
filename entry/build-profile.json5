@@ -1,6 +1,11 @@
 {
   "apiType": 'stageMode',
   "buildOption": {
+    "externalNativeOptions": {
+      "abiFilters": [
+        "x86_64"
+      ]
+    }
   },
   "targets": [
     {

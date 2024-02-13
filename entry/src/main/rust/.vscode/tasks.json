@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+        "label": "clean",
+        "command": "cargo",
+        "args": ["clean"],
+        "presentation": {
+            "reveal": "always"
+        },
+        "problemMatcher": {}
+    }, {
+        "label": "build",
+        "command": "cargo",
+        "args": [
+            "${input:cc_target}",
+            "${input:is_release}"
+        ],
+        "presentation": {
+            "reveal": "always"
+        },
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "problemMatcher": {}
+    }],
+    "inputs": [{
+        "type": "pickString",
+        "id": "cc_target",
+        "description": "请选择交叉编译目标",
+        "options": [
+          "ohos-arm64-build",
+          "ohos-arm32-build",
+          "ohos-x86_64-build",
+          "ohos-build"
+        ],
+        "default": "ohos-build"
+    }, {
+        "type": "pickString",
+        "id": "is_release",
+        "description": "请选择输出包的模式",
+        "options": [
+            "",
+            "--release"
+        ],
+        "default": "--release"
+    }]
+}

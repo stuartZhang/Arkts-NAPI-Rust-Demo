@@ -1,0 +1,16 @@
+[package]
+name = "calculator"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["dylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ohos-node-bindgen = "6.0.2"
+socket2 = "0.4.10"
+
+[patch.crates-io]
+socket2 = { path = "C:\\Users\\stuar\\github_projects\\socket2" }

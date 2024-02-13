@@ -1,0 +1,5 @@
+{
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "rust-analyzer.procMacro.attributes.enable": true
+}
