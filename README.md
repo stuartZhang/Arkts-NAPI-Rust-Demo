@@ -32,6 +32,13 @@
 
 4. 在`模块根目录/src/main/`目录下，创建`rust`文件夹。
 5. 在`模块根目录/src/main/rust`文件夹内，使用`cargo init --lib`命令初始`Cargo Package`工程
+   * 【注意】在`Cargo.toml`中，有一处反直觉的配置就是如下。即，交叉编译输出的链接库文件不是`cdylib`编码格式，而是`dylib`格式。
+
+        ```toml
+        [lib]
+        crate-type = ["dylib"]
+        ```
+
 6. 基于[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)基建，开发【鸿蒙`ArkTs N-API`】原生模块。
 7. 编写`build.rs`构建程序，将交叉编译输出的`*.so`文件分别复制到`模块根目录/libs/arm64-v8a`，`模块根目录/libs/armeabi-v7a`和`模块根目录/libs/x86_64`文件夹下。
 8. 执行交叉编译指指令
@@ -43,7 +50,7 @@
         --target=x86_64-unknown-linux-ohos
     ```
 
-9. 交叉编译输出的【链接库】文件名被自动命名为“`lib<Package_Name>.so`”。所以，若`Cargo.toml`定义`[package] name`为`calculator`，那么交叉编译输出的链接库名就是`libcalculator.so`。
+9.  交叉编译输出的【链接库】文件名被自动命名为“`lib<Package_Name>.so`”。所以，若`Cargo.toml`定义`[package] name`为`calculator`，那么交叉编译输出的链接库名就是`libcalculator.so`。
 10. 于是，在`ArkTs`代码中，就可直接以【链接库】文件名为【`ES Module`模块名】导入原生模块。比如，
 
     ```typescript
