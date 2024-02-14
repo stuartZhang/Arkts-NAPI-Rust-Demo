@@ -88,20 +88,32 @@
         socket2 = { path = "../../../../../socket2" }
         ```
 
-7. 编写`build.rs`与`post_build.rs`构建程序，将交叉编译输出的`*.so`文件分别复制到`模块根目录/libs/arm64-v8a`，`模块根目录/libs/armeabi-v7a`和`模块根目录/libs/x86_64`文件夹下。
-8. 执行交叉编译指指令
+7. 在`src`目录下，编写`Rust`业务逻辑处理程序。
+8. 安装`cargo-post`工具链增补项，以使用`cargo build`命令支持【后置处理】程序。
 
     ```shell
     cargo install cargo-post
+    ```
 
+9. 编写`build.rs`与`post_build.rs`构建程序，将交叉编译输出的`*.so`文件分别复制到`模块根目录/libs/arm64-v8a`，`模块根目录/libs/armeabi-v7a`和`模块根目录/libs/x86_64`文件夹内。其中，
+   * `build.rs`作为编译【前置处理】程序
+     * 收集`*.so`文件的位置信息
+     * 生成【文件复制】指令
+     * 将【文件复制】指令追加写入到指定的`*.cmd / *.sh`文件内。
+   * `post_build.rs`作为编译【后置处理】程序
+     * 执行【文件复制】脚本程序文件
+     * 删除该脚本程序文件
+10. 执行交叉编译指指令
+
+    ```shell
     cargo +nightly post build --release -Zbuild-std \
         --target=aarch64-unknown-linux-ohos \
         --target=armv7-unknown-linux-ohos \
         --target=x86_64-unknown-linux-ohos
     ```
 
-9.  交叉编译输出的【链接库】文件名被自动命名为“`lib<Package_Name>.so`”。所以，若`Cargo.toml`定义`[package] name`为`calculator`，那么交叉编译输出的链接库名就是`libcalculator.so`。
-10. 于是，在`ArkTs`代码中，就可直接以【链接库】文件名为【`ES Module`模块名】导入原生模块。比如，
+11. 交叉编译输出的【链接库】文件名被自动命名为“`lib<包名>.so`”。所以，若`Cargo.toml`定义`[package] name`为`calculator`，那么交叉编译输出的链接库文件名就是`libcalculator.so`。
+12. 在`ArkTs`代码中，直接以【链接库】文件名为【`ES Module`模块名】导入原生模块，并执行它的成员方法。
 
     ```typescript
     import calculator from 'libcalculator.so';
