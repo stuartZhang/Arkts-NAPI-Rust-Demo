@@ -64,7 +64,7 @@
         │   │   │  │   │  │  └── release
         ```
 
-6. 基于[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)基建，开发【鸿蒙`ArkTs N-API`】原生模块。因为由`ohos-node-bindgen crate`间接依赖的[socket2](https://crates.io/crates/socket2)不兼容【华为-鸿蒙】操作系统，所以，需要
+6. 依赖[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)基建，开发【鸿蒙`ArkTs N-API`】原生模块。因为由`ohos-node-bindgen crate`间接依赖的[socket2](https://crates.io/crates/socket2)不兼容【华为-鸿蒙】操作系统，所以，需要
    1. 在`DevEco Studio`工程的平级目录，克隆[stuartZhang/socket2](https://github.com/stuartZhang/socket2)至本地，
 
         ```shell
