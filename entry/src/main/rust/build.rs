@@ -26,7 +26,12 @@ fn main() -> Result<(), Box<dyn Error>> {
         profile_dir.canonicalize()?.display(),
         target_dir.canonicalize()?.display());
     let mut cmd_file = OpenOptions::new().append(true).create(true).open(target_dir.as_path().join(".deploy.cmd"))?;
-    writeln!(&mut cmd_file, "copy /Y {} {}",
+    let command = if cfg!(windows) {
+        "COPY /Y"
+    } else {
+        "cp --force"
+    };
+    writeln!(&mut cmd_file, "{} {} {}", command,
         profile_dir.as_path().join(&so_name).to_string_lossy(),
         libs_dir.as_path().join(&so_name).to_string_lossy()
     )?;

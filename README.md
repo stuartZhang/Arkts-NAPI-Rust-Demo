@@ -31,12 +31,37 @@
     |模块根目录/libs/x86_64|`64`位`AMD / Intel CPU`|模拟器|
 
 4. 在`模块根目录/src/main/`目录下，创建`rust`文件夹。
-5. 在`模块根目录/src/main/rust`文件夹内，使用`cargo init --lib`命令初始`Cargo Package`工程
-   * 【注意】在`Cargo.toml`中，有一处反直觉的配置就是如下。即，交叉编译输出的链接库文件不是`cdylib`编码格式，而是`dylib`格式。
+5. 在`模块根目录/src/main/rust`文件夹内，使用`cargo init --lib --name=<包名>`命令初始`Cargo Package`工程
+   * 【注意】交叉编译输出链接库的`ABI`格式不是`cdylib`，而是`dylib`。在`Cargo.toml`中，该设置有些反直觉
 
         ```toml
         [lib]
         crate-type = ["dylib"]
+        ```
+
+   * `Empty Ability`工程的新目录结构变为
+
+        ```shell
+        DevEco Studio 工程根目录
+        ├── entry — 模块级目录
+        │   ├── libs — 交叉编译输出的`*.so`文件被复制到下面的子文件夹内
+        │   │   ├── arm64-v8a
+        │   │   ├── armeabi-v7a
+        │   │   └── x86_64
+        │   ├── src
+        │   │   ├── main
+        │   │   │  ├── resources
+        │   │   │  ├── ets  — `ArkTs`程序
+        │   │   │  └── rust — 新建的、专门盛放`Cargo （Lib） Package`工程的目录
+        │   │   │  │   ├── Cargo.toml
+        │   │   │  │   ├── src
+        │   │   │  │   ├── target
+        │   │   │  │   │  ├── aarch64-unknown-linux-ohos
+        │   │   │  │   │  │  └── release
+        │   │   │  │   │  ├── armv7-unknown-linux-ohos
+        │   │   │  │   │  │  └── release
+        │   │   │  │   │  ├── x86_64-unknown-linux-ohos
+        │   │   │  │   │  │  └── release
         ```
 
 6. 基于[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)基建，开发【鸿蒙`ArkTs N-API`】原生模块。
