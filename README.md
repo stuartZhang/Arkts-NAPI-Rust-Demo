@@ -51,10 +51,10 @@
         │   ├── src
         │   │   ├── main
         │   │   │  ├── resources
-        │   │   │  ├── ets  — ArkTs 程序
+        │   │   │  ├── ets  — ArkTs 源码目录
         │   │   │  └── rust — 新建的、专门盛放 Cargo （Lib） Package 工程的目录
         │   │   │  │   ├── Cargo.toml
-        │   │   │  │   ├── src
+        │   │   │  │   ├── src — Rust 源码目录
         │   │   │  │   ├── target
         │   │   │  │   │  ├── aarch64-unknown-linux-ohos
         │   │   │  │   │  │  └── release
