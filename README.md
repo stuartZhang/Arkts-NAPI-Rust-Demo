@@ -39,7 +39,7 @@
         crate-type = ["dylib"]
         ```
 
-   * `Empty Ability`工程的新目录结构变为
+   * `DevEco Studio`工程的新目录结构变为
 
         ```shell
         DevEco Studio 工程根目录
