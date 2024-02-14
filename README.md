@@ -43,16 +43,16 @@
 
         ```shell
         DevEco Studio 工程根目录
-        ├── entry — 模块级目录
-        │   ├── libs — 交叉编译输出的`*.so`文件被复制到下面的子文件夹内
+        ├── entry — 模块根目录
+        │   ├── libs — 交叉编译输出的 *.so 文件被复制到下面的子文件夹内
         │   │   ├── arm64-v8a
         │   │   ├── armeabi-v7a
         │   │   └── x86_64
         │   ├── src
         │   │   ├── main
         │   │   │  ├── resources
-        │   │   │  ├── ets  — `ArkTs`程序
-        │   │   │  └── rust — 新建的、专门盛放`Cargo （Lib） Package`工程的目录
+        │   │   │  ├── ets  — ArkTs 程序
+        │   │   │  └── rust — 新建的、专门盛放 Cargo （Lib） Package 工程的目录
         │   │   │  │   ├── Cargo.toml
         │   │   │  │   ├── src
         │   │   │  │   ├── target
