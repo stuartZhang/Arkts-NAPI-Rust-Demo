@@ -5,7 +5,7 @@
 * 既包含了`DevEco Studio`的`Empty Ability`工程
 * 也包括了`Cargo (Library) Package`工程
 * 更涵盖了[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)的用例代码。
-* 最后，`Cargo (Library) Package`工程根目录下的`build.rs`构建程序也能直接在其它同类`Cargo Package`工程内复用。
+* 最后，`Cargo (Library) Package`工程根目录下的`build.rs`与`post_build.rs`构建程序也能直接在其它同类`Cargo Package`工程内复用。
 
 ## 如何使普通的`Empty Ability`工程支持`Rust`原生模块开发
 
@@ -40,17 +40,19 @@
         ```
 
 6. 基于[ohos-node-bindgen](https://github.com/stuartZhang/node-bindgen)基建，开发【鸿蒙`ArkTs N-API`】原生模块。
-7. 编写`build.rs`构建程序，将交叉编译输出的`*.so`文件分别复制到`模块根目录/libs/arm64-v8a`，`模块根目录/libs/armeabi-v7a`和`模块根目录/libs/x86_64`文件夹下。
+7. 编写`build.rs`与`post_build.rs`构建程序，将交叉编译输出的`*.so`文件分别复制到`模块根目录/libs/arm64-v8a`，`模块根目录/libs/armeabi-v7a`和`模块根目录/libs/x86_64`文件夹下。
 8. 执行交叉编译指指令
 
     ```shell
-    cargo +nightly build --release -Zbuild-std \
+    cargo install cargo-post
+
+    cargo +nightly post build --release -Zbuild-std \
         --target=aarch64-unknown-linux-ohos \
         --target=armv7-unknown-linux-ohos \
         --target=x86_64-unknown-linux-ohos
     ```
 
-9.  交叉编译输出的【链接库】文件名被自动命名为“`lib<Package_Name>.so`”。所以，若`Cargo.toml`定义`[package] name`为`calculator`，那么交叉编译输出的链接库名就是`libcalculator.so`。
+9. 交叉编译输出的【链接库】文件名被自动命名为“`lib<Package_Name>.so`”。所以，若`Cargo.toml`定义`[package] name`为`calculator`，那么交叉编译输出的链接库名就是`libcalculator.so`。
 10. 于是，在`ArkTs`代码中，就可直接以【链接库】文件名为【`ES Module`模块名】导入原生模块。比如，
 
     ```typescript
