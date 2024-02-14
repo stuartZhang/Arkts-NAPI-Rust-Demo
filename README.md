@@ -32,7 +32,7 @@
 
 4. 在`模块根目录/src/main/`目录下，创建`rust`文件夹。
 5. 在`模块根目录/src/main/rust`文件夹内，使用`cargo init --lib --name=<包名>`命令初始`Cargo Package`工程
-   * 【注意】交叉编译输出链接库的`ABI`格式不是`cdylib`，而是`dylib`。在`Cargo.toml`中，该设置有些反直觉
+   * 【注意】交叉编译输出链接库的`ABI`格式不是`cdylib`，而是`dylib`。在`Cargo.toml`中，该设置值有些反直觉
 
         ```toml
         [lib]
