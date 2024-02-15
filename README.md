@@ -106,7 +106,7 @@
 
    看图吧，一图抵千词
 
-   ![image](https://github.com/rust-lang/cargo/assets/13935927/545b73a7-53f1-4b30-9f5f-90152f393fab)
+   ![image](https://github.com/rust-lang/cargo/assets/13935927/64a90bb2-f03b-4f60-b3ed-686985936f90)
 
 10. 执行交叉编译指令
 
