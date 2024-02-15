@@ -12,3 +12,6 @@ socket2 = "0.4.10"
 
 [patch.crates-io]
 socket2 = { path = "../../../../../socket2" }
+
+[package.metadata.cargo-post.dependencies]
+encoding_rs = "0.8.33"
