@@ -11,7 +11,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     } else if cc_target == "x86_64-unknown-linux-ohos" {
         "x86_64"
     } else {
-        return Err(format!("未能识别的交叉编译目标：{}", cc_target).into());
+        println!("调试：未能识别的交叉编译目标：{}", cc_target);
+        return Ok(());
     });
     println!("调试：LIBS_DIR={}", libs_dir.canonicalize()?.display());
     if !libs_dir.exists() {

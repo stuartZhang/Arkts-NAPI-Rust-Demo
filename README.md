@@ -103,7 +103,12 @@
    * `post_build.rs`作为编译【后置处理】程序
      * 执行【文件复制】脚本程序文件
      * 删除该脚本程序文件
-10. 执行交叉编译指指令
+
+   看图吧，一图抵千词
+
+   ![image](https://github.com/rust-lang/cargo/assets/13935927/545b73a7-53f1-4b30-9f5f-90152f393fab)
+
+10. 执行交叉编译指令
 
     ```shell
     cargo +nightly post build --release -Zbuild-std \
