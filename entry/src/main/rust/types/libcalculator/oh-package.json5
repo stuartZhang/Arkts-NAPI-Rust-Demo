@@ -2,5 +2,5 @@
   "name": "libcalculator.so",
   "types": "./index.d.ts",
   "version": "0.1.0",
-  "description": "Please describe the basic information."
+  "description": "ArkTs NAPI 原生模块示例"
 }
