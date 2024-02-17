@@ -5,6 +5,8 @@
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    "libcalculator.so": "file:src/main/rust/types/libcalculator"
+  }
 }
 
