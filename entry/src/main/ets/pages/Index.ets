@@ -6,7 +6,7 @@ struct Index {
   @State message: string = '';
   aboutToAppear(){
     setTimeout(() => {
-      this.message = calculator.add(2, 3);
+      this.message = String(calculator.add(2, 3));
     }, 250);
   }
   build() {
