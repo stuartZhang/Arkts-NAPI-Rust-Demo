@@ -3,6 +3,10 @@ use ::std::{error::Error, env, fs, path::Path, process::{Command, Output}};
 fn main() -> Result<(), Box<dyn Error>> {
     let target_dir = env::var("CRATE_TARGET_DIR")?;
     let script_file = Path::new(&target_dir[..]).join(".deploy.cmd");
+    if !script_file.exists() {
+        println!("调试：未交叉编译输出新的链接库 .so 文件");
+        return Ok(());
+    }
     #[cfg(unix)]
     {
         use ::std::os::unix::fs::PermissionsExt;
