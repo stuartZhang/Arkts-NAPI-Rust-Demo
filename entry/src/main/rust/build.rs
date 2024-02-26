@@ -26,7 +26,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!("调试：SO_NAME={}; \n\tPROFILE_DIR={}\n\tTARGET_DIR={}", so_name,
         profile_dir.canonicalize()?.display(),
         target_dir.canonicalize()?.display());
-    let mut cmd_file = OpenOptions::new().append(true).create(true).open(target_dir.as_path().join(".deploy.cmd"))?;
+    let mut cmd_file = OpenOptions::new().append(true).create(true).open(target_dir.as_path().join(format!(".deploy.{}", if cfg!(windows) { "cmd" } else { "sh" })))?;
     let command = if cfg!(windows) {
         "COPY /Y"
     } else {
