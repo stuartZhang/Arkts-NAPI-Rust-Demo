@@ -1,13 +1,12 @@
 {
-  "name": "arkts_napi_rust_demo",
-  "version": "1.0.0",
-  "description": "Please describe the basic information.",
-  "main": "",
-  "author": "",
   "license": "",
-  "dependencies": {
-  },
   "devDependencies": {
     "@ohos/hypium": "1.0.6"
-  }
+  },
+  "author": "",
+  "name": "arkts_napi_rust_demo",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "version": "1.0.0",
+  "dependencies": {}
 }

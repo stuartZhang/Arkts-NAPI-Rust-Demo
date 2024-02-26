@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\stuar\\.ohos\\config\\auto_debug_Arkts_NAPI_Rust_Demo_com.example.arkts_napi_rust_demo_30086000747504066.cer",
+          "storePassword": "0000001B24CCDC64F9AB7F4C05F3CEF1FDE1DDA9BCB2587DB7F983C00D04333B8DB76582EF91C285282631",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BE7FF5A338B6D53EE191AEA191BF55ED955CA3D7BAD2040D2AF3A69FE5C5D387746360BC1815D95",
+          "profile": "C:\\Users\\stuar\\.ohos\\config\\auto_debug_Arkts_NAPI_Rust_Demo_com.example.arkts_napi_rust_demo_30086000747504066.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\stuar\\.ohos\\config\\auto_debug_Arkts_NAPI_Rust_Demo_com.example.arkts_napi_rust_demo_30086000747504066.p12"
+        }
+      }
+    ],
     "compileSdkVersion": 9,
     "compatibleSdkVersion": 9,
     "products": [
